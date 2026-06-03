@@ -1,0 +1,65 @@
+﻿<Window x:Class="SystemMonitoringDashboard.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
+        Title="Real-Time System Monitoring Dashboard"
+        Height="720"
+        Width="1100"
+        WindowStartupLocation="CenterScreen"
+        Background="#F4F7FB">
+
+    <Grid Margin="25">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Real-Time System Monitoring Dashboard"
+                   FontSize="28"
+                   FontWeight="Bold"
+                   Foreground="#0F172A"
+                   Margin="0,0,0,20"/>
+
+        <UniformGrid Grid.Row="1"
+                     Columns="4"
+                     Margin="0,0,0,20">
+
+            <Border Background="White" CornerRadius="12" Padding="18" Margin="8">
+                <StackPanel>
+                    <TextBlock Text="CPU Usage" FontSize="16"/>
+                    <TextBlock x:Name="CpuText" Text="0%" FontSize="30" FontWeight="Bold" Foreground="#2563EB"/>
+                </StackPanel>
+            </Border>
+
+            <Border Background="White" CornerRadius="12" Padding="18" Margin="8">
+                <StackPanel>
+                    <TextBlock Text="Memory Usage" FontSize="16"/>
+                    <TextBlock x:Name="MemoryText" Text="0%" FontSize="30" FontWeight="Bold" Foreground="#16A34A"/>
+                </StackPanel>
+            </Border>
+
+            <Border Background="White" CornerRadius="12" Padding="18" Margin="8">
+                <StackPanel>
+                    <TextBlock Text="Disk Usage" FontSize="16"/>
+                    <TextBlock x:Name="DiskText" Text="0%" FontSize="30" FontWeight="Bold" Foreground="#EA580C"/>
+                </StackPanel>
+            </Border>
+
+            <Border Background="White" CornerRadius="12" Padding="18" Margin="8">
+                <StackPanel>
+                    <TextBlock Text="Running Processes" FontSize="16"/>
+                    <TextBlock x:Name="ProcessText" Text="0" FontSize="30" FontWeight="Bold" Foreground="#7C3AED"/>
+                </StackPanel>
+            </Border>
+        </UniformGrid>
+
+        <Border Grid.Row="2"
+                Background="White"
+                CornerRadius="12"
+                Padding="20">
+
+            <lvc:CartesianChart x:Name="UsageChart"/>
+        </Border>
+    </Grid>
+</Window>
